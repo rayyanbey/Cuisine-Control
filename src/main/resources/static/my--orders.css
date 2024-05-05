@@ -1,0 +1,50 @@
+/* Default styles */
+
+.ordered-item-image {
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.ordered-item-image:hover {
+    transform: scale(1.05);
+}
+
+/* Media queries for small screens */
+
+@media (max-width: 768px) {
+
+
+    .col {
+        padding: 0; /* Remove padding for better layout on small screens */
+    }
+
+    .mb-3.order-block {
+        flex-direction: column; /* Change flex-direction for better stacking */
+    }
+
+    .ms-5 {
+        margin-top: 10px; /* Adjust margin for better spa690cing */
+    }
+
+    .bg-lg {
+        margin-top: 10px; /* Adjust margin for better spacing */
+    }
+    .nav-side-use2 {
+        position: absolute;
+        width: 33px;
+
+        z-index: 9999; 
+        height: 100%;
+    }
+
+
+}
+
+
+@media (max-width: 645px) and (min-width: 768px) {
+    .nav-side-use2 {
+        padding-left: 0px;
+    }
+}

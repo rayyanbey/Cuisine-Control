@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" th:href="@{/StyleSheet.css}" />
+    <title>Cuisine Control</title>
+</head>
+<body>
+<section id="feedback-us">
+    <div class="container">
+        <div class="row single-form g-0">
+            <div class="col-sm-12 col-lg-6">
+                <div class="left-part">
+                    <h1 class="pb-4">Feedback</h1>
+                    <h2>
+                        <span> Tell others </span>
+                        <br />
+                        What you think about us
+                    </h2>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-6">
+                <div class="right-part">
+                    <i class="fa fa-caret-left" style="color: white"></i>
+                    <form method="post" th:action="@{/feedback}" >
+                        <div class="mb-3">
+                            <label class="form-label"
+                            >Name</label
+                            >
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    disabled
+                                    aria-describedby="emailHelp"
+                            />
+                            <div id="emailHelp" class="form-text"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="rating" class="form-label">Rating stars</label>
+                            <input
+                                    type="number"
+                                    class="form-control"
+                                    name="rating"
+                                    min="1"
+                                    max="5"
+                                    id="rating"
+                                    th:value="${feedback.noStars}"
+                                    required
+                            />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="review" class="form-label"
+                            >Message</label
+                            >
+                            <textarea name="review" th:text="${feedback.feedback}" class="form-control" id="review" required>
+                  </textarea>
+                        </div>
+
+                        <div class="contact-us-end-button mt-5 pt-5">
+                            <button
+                                    type="submit"
+                                    class="btn fs-5 btn-primary btn-lg"
+                                    style="border-radius: 5px; width: 8.3rem"
+                            >
+                                Submit
+                            </button>
+                            <button
+                                    type="button"
+                                    class="btn fs-5 btn-primary btn-lg"
+                                    style="border-radius: 5px; width: 8.3rem"
+                            >
+                                <a style="text-decoration: none; color: inherit" th:href="@{/home}">Go Back</a>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

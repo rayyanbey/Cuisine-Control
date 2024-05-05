@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <style type="text/css">
+        body {
+            margin-top: 20px;
+            background: #eee;
+        }
+        .card {
+            box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+        }
+        .avatar.sm {
+            width: 2.25rem;
+            height: 2.25rem;
+            font-size: 0.818125rem;
+        }
+        .table-nowrap .table td,
+        .table-nowrap .table th {
+            white-space: nowrap;
+        }
+        .table > :not(caption) > * > * {
+            padding: 0.75rem 1.25rem;
+            border-bottom-width: 1px;
+        }
+        table th {
+            font-weight: 600;
+            background-color: #eeecfd !important;
+        }
+        .custom-orange-color {
+            color: #ff8a00;
+        }
+        .custom-orange-bg {
+            background-color: #ff8a00;
+        }
+        .on-hover:hover {
+            background-color: white !important;
+            color: #ff8a00;
+            border-color: #ff8a00 !important;
+        }
+        .custom-white-color {
+            color: #ffffff;
+        }
+        .custom-grey-bg {
+            background-color: #fafafa;
+        }
+        #add{
+            font-size: 12px;
+        }
+        #color
+        {
+            background-color: white;
+            color: #ff8a00;
+        }
+        #color2
+        {
+            background-color: white;
+            color: #ff8a00;
+        }
+    </style>
+</head>
+<body class="pt-5">
+<link
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        rel="stylesheet"
+/>
+<nav class="navbar custom-orange-bg fixed-top">
+    <div>
+        <a class="navbar-brand" href="#">
+            <img
+                    th:src="@{rest.jpg}"
+                    alt="Logo"
+                    width="60"
+                    height="48"
+                    style="width: 60px; height: 48px; border-radius: 8px"
+                    class="d-inline-block align-text-top"
+            />
+            Cuisine Control
+            <a th:href="@{/generateCoupon}" class=" custom-white-color on-hover custom-orange-bg rounded text-decoration-none p-1 border border-1 border-white" id="color">Generate</a>
+        </a>
+        <a th:href="@{/managerDashboard/temp}" class=" custom-white-color on-hover custom-orange-bg rounded text-decoration-none p-1 border border-1 border-white" id="color2">Requests</a>
+    </div>
+    <form id="logoutForm" method="post" th:action="@{/logout}">
+        <a onclick="document.getElementById('logoutForm').submit()">
+
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <span >Log Out</span>
+        </a>
+
+    </form>
+</nav>
+
+
+<div class="container p-5">
+    <div class="row">
+        <div class="col-12 mb-3 mb-lg-5">
+            <div class="overflow-hidden card table-nowrap table-card">
+                <div
+                        class="card-header d-flex justify-content-between align-items-center"
+                >
+                    <h5 class="mb-0 custom-orange-color">Waiters</h5>
+                    <a th:href="@{/AddWaiter}" class="custom-orange-bg on-hover custom-white-color rounded text-decoration-none p-1 border border-1 border-white" id="add">Add Waiter</a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table mb-0">
+                        <thead class="small text-uppercase bg-body text-muted">
+                        <tr>
+                            <th>Name</th>
+                            <th>LogInID</th>
+                            <th>Password</th>
+                            <th>Phone No</th>
+                            <th>Address</th>
+                            <th class="text-end">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="align-middle" th:each="waiter :${waiterinfos}">
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <!-- Name -->
+                                    <div>
+                                        <div class="h6 mb-0 lh-1" th:text="${waiter.fullname}"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <!-- Email -->
+                                <div class="h6 mb-0 lh-1" th:text="${waiter.email}"></div>
+                            </td>
+                            <td>
+                                <!-- Password -->
+                                <span class="d-inline-block align-middle" th:text="${waiter.password}"></span>
+                            </td>
+                            <!-- Phone No -->
+                            <td><span th:text="${waiter.phonenumber}"></span></td>
+                            <!-- Address -->
+                            <td><span th:text="${waiter.address}"></span></td>
+                            <td class="text-end">
+                                <div class="dropdown">
+                                    <a
+                                            data-bs-toggle="dropdown"
+                                            href="#"
+                                            class="btn p-1"
+                                            aria-expanded="false"
+                                    >
+                                        <i class="fa fa-bars" aria-hidden="true"></i>
+                                    </a>
+                                    <div
+                                            class="dropdown-menu dropdown-menu-end custom-grey-bg"
+                                            style
+                                    >
+                                        <a
+                                                th:href="@{/UpdateWaiter/{email}/edit(email=${waiter.email})}"
+                                                class="dropdown-item custom-orange-bg on-hover custom-white-color"
+                                        >Update Employee</a
+                                        >
+                                        <a
+                                                th:href="@{/UpdateWaiter/{email}/delete(email=${waiter.email})}"
+                                                class="dropdown-item custom-orange-bg on-hover custom-white-color"
+                                        >Delete Employee</a
+                                        >
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

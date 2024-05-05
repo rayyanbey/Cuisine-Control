@@ -1,0 +1,113 @@
+﻿
+:root {
+
+    --color-primary: #FF681F;
+}
+
+.container{
+    margin-top: 45px;
+}
+
+.form-area {
+    padding-top: 7%;
+}
+
+.row.single-form {
+    box-shadow: 0 2px 20px -5px rgba(0,0,0,0.5);
+    background: #fff;
+}
+
+.left-part {
+    background-color: var(--color-primary);
+    padding: 200px 93px;
+    height: 100%;
+}
+.left-part h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #fff;
+    font-weight: 700;
+    font-size: 70px;
+}
+
+.left-part h2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #fff;
+    font-weight: 700;
+    font-size: 48px;
+}
+
+.left h2 span {
+    font-weight: 100;
+}
+
+.right-part {
+    padding: 70px 100px;
+    position: relative;
+}
+
+.right-part i {
+    position: absolute;
+    font-size: 80px;
+    left: -27px;
+    top: 40%;
+}
+
+.form-control {
+    border: 2px solid #000;
+}
+
+.right-part button {
+    border: none;
+    border-radius: 0;
+    background-color: var(--color-primary);
+    width: 100px;
+    color: #fff;
+    padding: 15px 0;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.right-part button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+@media (min-width: 768px) and (max-width:991px) {
+    .right-part i {
+        top: -52px;
+        transform: rotate(90deg);
+        left: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .left-part {
+        padding: 90px 15px;
+        text-align: center;
+    }
+
+    .left-part h2 {
+        font-size: 25px;
+    }
+
+    .right-part {
+        padding: 25px;
+    }
+
+    .right-part i {
+        top: -25px;
+        transform: rotate(90deg);
+        left: 45%;
+    }
+
+    .right-part button {
+        width: 150px;
+        padding: 12px 0;
+    }
+}
+
+
+
+

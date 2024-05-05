@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom button color */
+        .custom-btn {
+            color: #fff;
+            background-color: #FF681F;
+            border-color: #FF681F;
+        }
+        .custom-btn:hover {
+            color: #fff;
+            background-color: orange;
+            border-color: orange;
+        }
+
+        body {
+            background-color: #f8f9fa; /* Light grey */
+        }
+
+        /* Prevent button color change on focus */
+        .customer-btn:focus {
+            box-shadow: none;
+        }
+        .my-cart-heading {
+            font-weight: bold;
+            font-size: 2em; /* You can adjust the font size as needed */
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="my-cart-heading">My Cart</h1>
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Loop through cart items -->
+                <tr th:each="item : ${cart.items}">
+                    <td>
+                        <div class="media">
+                            <img th:src="${item.getFoodItem().photoURL}" class="mr-3" alt="Product Image" style="width: 80px;">
+                            <div class="media-body">
+                                <h5 class="mt-0" th:text="${item.getFoodItem().name}">Product Name</h5>
+                                <!-- Product details (if any) -->
+                            </div>
+                        </div>
+                    </td>
+                    <td th:text="${item.getFoodItem().price}">$20.00</td>
+                    <td>
+                        <div class="input-group">
+                            <form  method="post" th:action="@{/decreaseItem/{itemId}(itemId=${item.foodItem.id})}">
+                            <button  type="submit" class="btn btn-outline-secondary custom-btn">-</button>
+                            </form>
+                            <input type="text" class="form-control text-center" th:value="${item.quantity}" disabled>
+                            <form  method="post" th:action="@{/increaseItem/{itemId}(itemId=${item.foodItem.id})}">
+
+                                <button type="submit" class="btn btn-outline-secondary custom-btn">+</button>
+                            </form>
+                        </div>
+                    </td>
+                    <td th:text="${item.getTotalPrice()}">$20.00</td>
+                </tr>
+                <!-- Repeat for each item -->
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Apply Coupon</h5>
+                    <form method="post" th:action="@{/applycoupon}"  class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Coupon Code" name="code" required>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary custom-btn" type="submit">Apply</button>
+                        </div>
+                    </form>
+                    <p th:if="${cart.isCouponApplied}" th:text="'Applied Coupon : ' + ${cart.couponCode}"></p>
+                    <hr>
+                    <h5 class="card-title">Total</h5>
+                    <p class="card-text"    >Subtotal: $<span th:text="${cart.getTotalPrice()}"></span></p>
+                    <p class="card-text">Shipping: Free</p>
+                    <!-- Discount info -->
+                    <p class="card-text">Discount: $<span th:text="${cart.getDiscountPrice()}"></span></p>
+                    <h4>Total: $<span th:text="${cart.getFinalPrice()}"></span></h4>
+                </div>
+            </div>
+
+            <form method="get" th:action="@{/checkoutpage}">
+
+                <button type="submit" class="btn btn-primary mt-4 custom-btn" th:disabled="${cart.items.isEmpty()}">Proceed to Checkout</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

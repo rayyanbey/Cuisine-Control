@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waiter Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS */
+        .dashboard-container {
+            margin-top: 50px;
+        }
+        .card {
+            margin-bottom: 20px;
+            background:  orange;
+            position: relative;
+            padding-left: 60px; /* Adjust this value according to your image size */
+        }
+        .profile-image-pic {
+            width: 200px; /* Adjust profile image width */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 20px; /* Add some space between the image and cards */
+        }
+        .card-img {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            max-width: 65px; /* Adjust this value according to your image size */
+            height: 60%;
+        }
+        .card-title {
+            margin-bottom: 0;
+        }
+        .card-link {
+            color: orange;
+        }
+        .view-details:hover {
+            cursor: pointer;
+        }
+        /* Logo CSS */
+        .navbar-brand img {
+            max-width: 10%; /* Adjust this value according to your logo size */
+            height: auto; /* Maintain aspect ratio */
+
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header with logo -->
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="rest.jpg" alt="Logo">
+    </a>
+
+    <form id="logoutForm" method="post" th:action="@{/logout}">
+        <a onclick="document.getElementById('logoutForm').submit()">
+
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <span >Log Out</span>
+        </a>
+
+    </form>
+</nav>
+
+<div class="container dashboard-container">
+    <div class="row">
+        <!-- Total Orders -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="icon_waiter.png" alt="Icon" class="card-img">
+                <div class="card-body">
+                    <h5 class="card-title">Total Orders</h5>
+
+                    <a th:href="@{/waiter/myorders}" class="card-description" ><span class="view-details">View details</span> <span>&rarr;</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Orders -->
+        <div class="col-md-4" >
+            <div class="card">
+                <img src="icon_waiter.png" alt="Icon" class="card-img">
+                <div class="card-body">
+                    <h5 class="card-title">Pending Orders</h5>
+
+                    <a th:href="@{/waiter/myorders/pending}" class="card-description"  ><span class="view-details">View details</span> <span>&rarr;</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completed Orders -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="icon_waiter.png" alt="Icon" class="card-img">
+                <div class="card-body">
+                    <h5 class="card-title">Completed Orders</h5>
+
+                    <a class="card-description" th:href="@{/waiter/myorders/completed}" ><span class="view-details">View details</span> <span>&rarr;</span></a>
+                </div>
+            </div>
+        </div>
+        <!-- New Orders -->
+        <div class="col-md-4" >
+            <div class="card">
+                <img src="icon_waiter.png" alt="Icon" class="card-img">
+                <div class="card-body">
+                    <h5 class="card-title">New Orders</h5>
+                    <p class="card-text"></p>
+                    <a th:href="@{/waiter/menu}" class="card-description" ><span class="view-details">Create</span> <span>&rarr;</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

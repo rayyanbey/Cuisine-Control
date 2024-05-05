@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+
+  <title>Requested Item</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+  />
+  <style type="text/css">
+    body {
+      margin-top: 20px;
+      background: #eee;
+    }
+    .card {
+      box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+    }
+    .avatar.sm {
+      width: 2.25rem;
+      height: 2.25rem;
+      font-size: 0.818125rem;
+    }
+    .table-nowrap .table td,
+    .table-nowrap .table th {
+      white-space: nowrap;
+    }
+    .table > :not(caption) > * > * {
+      padding: 0.75rem 1.25rem;
+      border-bottom-width: 1px;
+    }
+    table th {
+      font-weight: 600;
+      background-color: #eeecfd !important;
+    }
+    .custom-orange-color {
+      color: #ff8a00;
+    }
+    .custom-orange-bg {
+      background-color: #ff8a00;
+    }
+    .on-hover:hover {
+      background-color: white !important;
+      color: #ff8a00;
+    }
+    .custom-white-color {
+      color: #ffffff;
+    }
+    .custom-grey-bg {
+      background-color: #fafafa;
+    }
+    .custom-link {
+      color: #ff8a00;
+    }
+    .custom-link:hover {
+      color: #c95400;
+    }
+    .custom-button {
+      background-color: #ff8a00;
+      color: #fff; /* Text color */
+      border-color: #ff8a00; /* Border color */
+    }
+    .custom-button:hover {
+      background-color: #fff; /* Change color on hover */
+      color: #ff8a00;
+      border-color: #ff6a00; /* Change border color on hover */
+    }
+    #add{
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body class="pt-5">
+<link
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        rel="stylesheet"
+/>
+<nav class="navbar custom-orange-bg fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img
+              th:src="@{/rest.jpg}"
+              alt="Logo"
+              width="60"
+              height="48"
+              style="width: 60px; height: 48px; border-radius: 8px"
+              class="d-inline-block align-text-top"
+      />
+      Cuisine Control
+    </a>
+       
+  </div>
+  <a th:href="@{/managerDashboard}">Home</a>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-11 mb-3 mb-lg-5 py-5">
+      <div
+              class="w-75 mx-auto overflow-hidden card table-nowrap table-card"
+      >
+        <div
+                class="card-header d-flex justify-content-between align-items-center"
+        >
+          <h5 class="mb-0 custom-orange-color">Requested Items</h5>
+          <a th:href="@{/requestItem}" class="custom-orange-bg on-hover custom-white-color rounded text-decoration-none p-1 border border-1 border-white" id="add">Request</a>
+        </div>
+        <div class="table-responsive">
+          <table class="table mb-0">
+            <thead class="small text-uppercase bg-body text-muted">
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="align-middle"  th:each="fooditem :${fooditems}">
+              <td>
+                <div class="d-flex align-items-center">
+                  <!-- Name -->
+                  <div>
+                    <div class="h6 mb-0 lh-1" th:text="${fooditem.name}"></div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <!-- Price -->
+                <div class="h6 mb-0 lh-1" th:text="${fooditem.price}"></div>
+              </td>
+              <td>
+                <!-- Category -->
+                <span class="d-inline-block align-middle" th:text="${fooditem.category}"></span>
+              </td>
+              <td>
+                <div class="h6 mb-0 lh-1" th:text="${fooditem.status}"></div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

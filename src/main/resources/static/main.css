@@ -1,0 +1,626 @@
+ /* fonts */
+ @font-face {
+    font-family: my-own-font;
+    src: url(fonts/Lemonade\ Stand\ D.otf);
+ }
+ 
+ @font-face {
+    font-family: my-own-font-2;
+    src: url(fonts/Cameliya.otf);
+ }
+
+ @font-face {
+  font-family: my-own-font-3;
+  src: url(fonts/Northline.ttf);
+ }
+
+/* base */
+
+  
+:root {
+   --color-default: #ce1212;
+
+   --color-primary: #FF681F;
+}
+  
+:root {
+    scroll-behavior: smooth;
+}
+  
+
+
+ /* navbar */
+.nav-item-custom{
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.nav-item-custom a{
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 1.4rem;
+    border-radius: 1rem;
+    position: relative; 
+    padding: 0.5rem 1rem;
+    
+}
+
+.nav-item-custom a::before,
+.nav-item-custom a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--color-primary);
+}
+
+.nav-item-custom a:hover::before,
+.nav-item-custom a:hover::after {
+  background-color: var(--color-secondary);
+}
+
+.nav-item-custom a:nth-child(odd)::before {
+  top: 0;
+}
+
+.nav-item-custom a:nth-child(odd)::after {
+  bottom: 0;
+}
+
+.nav-item-custom a:nth-child(even)::before {
+  bottom: 0;
+}
+
+.nav-item-custom a:nth-child(even)::after {
+  top: 0;
+}
+
+.nav-end-button,
+.hero-btn-book-table {
+   margin-right: 1.4rem;
+}
+
+.nav-end-button button,
+.hero-btn-book-table button,
+.contact-us-end-button button{
+    border-style:none;
+    border-radius: 5px;
+    background-color: var(--color-primary);
+}
+
+
+.nav-end-button button:hover,
+.hero-btn-book-table button:hover,
+.contact-us-end-button button:hover{
+    background-color: var(--color-primary-hover);
+    color: var(--color-text-light); 
+}
+
+.nav-end-button :active,
+.nav-item-custom :active,
+.hero-btn-book-table :active,
+.contact-us-end-button :active{
+    transform: scale(0.95);
+    transition: transform 0.2s ease;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
+}
+
+ /* section */
+
+.section-custom{
+    overflow: hidden;
+    padding: 80px 0;
+    scroll-margin-top: 90px;
+    overflow: clip;
+}
+
+ /* navbar end */
+
+ .section-bg{
+    margin-top: 2.5rem;
+ 
+ }
+ .h1-custom{
+  font-family:my-own-font; 
+  word-spacing: 0.4rem;
+  font-size: 3.5rem;
+  color: #284c0c;
+  font-weight: 500;
+ }
+  .h1-custom p{
+    color: #284c0c;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+   /* My Hero ends */
+
+   .about-ul{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #284c0c;
+   }
+
+   /* about us */
+.about-us-heading h2,
+.reservation-heading h2,
+.Menu-heading,
+.service-heading h2{
+    font-family:my-own-font;
+    font-weight: 700;
+}
+
+.content-custom p{
+    font-size:large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #284c0c;
+}
+  /* media query */
+
+  @media (max-width: 991.98px) {
+    .about-img {
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+      margin-inline: 11px;
+    }
+  }
+
+  @media (max-width:768.5px){
+    .rev-image{
+        height: 400px;
+    }
+  }
+
+  /* reservation */
+
+#reservation{
+    margin-top: -3rem;
+}
+.make-reservation{
+    background-color: rgba(255, 104, 31, 0.02);
+    border-radius: 10px;
+}
+
+.form-floating label,option{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:#284c0c;
+    font-weight:600;
+}
+
+
+/* menu section */
+
+
+.h5-custom span{
+    color: #284c0c;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+}
+
+#h2-type-2{
+    font-family: my-own-font-3;
+    color: var(--color-primary);
+    font-weight: normal;
+    font-size: 4rem;
+}
+
+
+ /* cards */
+
+.shef-image{
+  height: 13rem;
+  width: 13rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.shef-image:hover {
+  transform: scale(1.1);
+}
+
+
+/* contact us */
+
+
+.form-area{
+  padding-top: 7%;
+}
+.row.single-form{
+  box-shadow: 0 2px 20px -5px rgba(0,0,0,0.5);
+  background: #fff;
+}
+.left-part{
+  background-color:var(--color-primary);
+  padding: 200px 93px;
+  height: 100%;
+}
+.left-part h2{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #fff;
+  font-weight: 700;
+  font-size: 48px;
+}
+.left h2 span{
+  font-weight: 100;
+}
+
+.right-part{
+  padding:70px 100px;
+  position: relative;
+
+}
+.right-part i{
+  position: absolute;
+  font-size: 80px;
+  left: -27px;
+  top: 40%;
+}
+.form-control{
+  border: 2px solid #000;
+}
+.right-part button{
+  border: none;
+  border-radius: 0;
+  background-color: var(--color-primary);
+  width: 100px;
+  color: #fff;
+  padding: 15px 0;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor:pointer;
+}
+.right-part button:hover{
+  background-color: #fff;
+
+}
+
+@media (min-width: 768px) and (max-width:991px){
+  .right-part i{
+    top:-52px;
+    transform: rotate(90deg);
+    left: 50%;
+  }
+}
+@media (max-width: 767px){
+  .left-part{
+    padding: 90px 15px;
+    text-align: center;
+  }
+  .left-part h2{
+    font-size: 25px;
+  }
+  .right-part{
+    padding: 25px;
+  }
+  .right-part i{
+    top: -25px;
+    transform: rotate(90deg);
+    left: 45%;
+
+  }
+  .right-part button{
+    width: 150px;
+    padding: 12px 0;
+  }
+}
+
+/* footer styling */
+
+.footer-custom {
+  background-color:#201c24;
+  padding: 60px 0;
+}
+
+.footer-custom h4 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-custom p {
+  color: #fff;
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+.footer-custom a {
+  color: whitesmoke;
+}
+
+.footer-custom a:hover {
+  color: #fff;
+}
+
+/* Social links */
+.social-links-custom a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: whitesmoke;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  margin-right: 8px;
+  transition: all 0.3s ease;
+}
+
+.social-links-custom a:hover {
+  background-color: var(--color-primary)
+}
+
+.copyright {
+  color: whitesmoke;
+  font-size: 14px;
+}
+
+.credits-custom a {
+  color: whitesmoke;
+  font-weight: 500;
+}
+
+.credits a:hover {
+  color: #007bff;
+}
+
+
+
+/* side bar menu */
+
+.nav-side{
+  color:  #FF681F;
+  width: 80px;
+  padding-left: 13px;
+  height: 88.5vh;
+  background-color: rgba(220, 220, 220, 0.7);
+  border-top-right-radius: 80px;
+  transition: all 0.5s ease;
+  overflow: hidden;
+  position: absolute;
+  border-bottom-right-radius: 20%;
+  font-weight: bold;
+}
+
+
+.nav-side a {
+  font-size: 12px;
+  color:  #FF681F;
+  display: block;
+  padding: 12px;
+  padding-left: 30px;
+  text-decoration: none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.nav-side a:hover {
+  color: #FF681F;
+
+  outline: none;
+  position: relative;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+
+}
+
+.nav-side a i {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.nav-side a:hover::after {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: 100%;
+  right: 0;
+  height: 35px;
+  width: 35px;
+  border-bottom-right-radius: 18px;
+  box-shadow: 0 20px 0 0 #fff;
+
+}
+
+.nav-side a:hover::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  top: 38px;
+  right: 0;
+  height: 35px;
+  width: 35px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 -20px 0 0 #fff;
+}
+
+.nav-side p {
+  margin: 0;
+  padding: 40px 0;
+}
+
+body {
+  font-family: 'Roboto';
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+.social {
+  height: 0;  
+}
+
+.social i:before {
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+  position: fixed;
+  color: #fff;
+  background: #0077B5;
+  padding: 10px;
+  border-radius: 50%;
+  top:5px;
+  right:5px;
+}
+
+.nav-side:hover{
+  width: 250px;
+}
+span{
+  color:rgba(220, 220, 220, 0.5);
+  text-align: left;
+  transition: all 0.6s ease;
+}
+.nav-side:hover span {
+  color:  #FF681F;
+}
+
+
+@media (max-width:650px){
+
+  .nav-side{
+    padding-left: 0px;
+    width: 50px;
+    height: 70vh;
+  }
+  .nav-side:hover{
+    width: 135px;
+  }
+
+}
+
+.go-back-icon{
+  border-radius: 50%;
+  text-decoration: none;
+  font-size:xx-large;
+  color: #000;
+  transition: color 0.3s ease;
+}
+.go-back-icon:hover{
+  color: #FF681F;
+}
+
+
+
+ :root {
+
+     --color-primary: #FF681F;
+ }
+
+ .container{
+     margin-top: 45px;
+ }
+
+ .form-area {
+     padding-top: 7%;
+ }
+
+ .row.single-form {
+     box-shadow: 0 2px 20px -5px rgba(0,0,0,0.5);
+     background: #fff;
+ }
+
+ .left-part {
+     background-color: var(--color-primary);
+     padding: 200px 93px;
+     height: 100%;
+ }
+ .left-part h1 {
+     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+     color: #fff;
+     font-weight: 700;
+     font-size: 70px;
+ }
+
+ .left-part h2 {
+     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+     color: #fff;
+     font-weight: 700;
+     font-size: 48px;
+ }
+
+ .left h2 span {
+     font-weight: 100;
+ }
+
+ .right-part {
+     padding: 70px 100px;
+     position: relative;
+ }
+
+ .right-part i {
+     position: absolute;
+     font-size: 80px;
+     left: -27px;
+     top: 40%;
+ }
+
+ .form-control {
+     border: 2px solid #000;
+ }
+
+ .right-part button {
+     border: none;
+     border-radius: 0;
+     background-color: var(--color-primary);
+     width: 100px;
+     color: #fff;
+     padding: 15px 0;
+     display: inline-block;
+     font-size: 16px;
+     margin-top: 20px;
+     cursor: pointer;
+ }
+
+ .right-part button:hover {
+     background-color: #fff;
+     color: #000;
+ }
+
+ @media (min-width: 768px) and (max-width:991px) {
+     .right-part i {
+         top: -52px;
+         transform: rotate(90deg);
+         left: 50%;
+     }
+ }
+
+ @media (max-width: 767px) {
+     .left-part {
+         padding: 90px 15px;
+         text-align: center;
+     }
+
+     .left-part h2 {
+         font-size: 25px;
+     }
+
+     .right-part {
+         padding: 25px;
+     }
+
+     .right-part i {
+         top: -25px;
+         transform: rotate(90deg);
+         left: 45%;
+     }
+
+     .right-part button {
+         width: 150px;
+         padding: 12px 0;
+     }
+ }
+
+
+
+

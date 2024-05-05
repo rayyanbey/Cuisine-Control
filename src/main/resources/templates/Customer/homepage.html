@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cuisine Control</title>
+    <link rel="icon" type="image/png" href="images/cuisine-control_logo.png"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="main.css">-->
+    <link rel="stylesheet" th:href="@{/CSS_reviews.css}"/>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<nav class="nav-side">
+    <p></p>
+
+    <a th:href="@{/myreservations}">
+        <i class="fa fa-laptop" aria-hidden="true"></i>
+        <span>Reservations</span>
+    </a>
+    <a th:href="@{/myorders}">
+        <i class="fa fa-clone" aria-hidden="true"></i>
+        <span>Orders</span>
+    </a>
+    <form id="logoutForm" method="post" th:action="@{/logout}">
+        <a onclick="document.getElementById('logoutForm').submit()">
+
+        <i class="fa fa-sign-out" aria-hidden="true"></i>
+        <span >Log Out</span>
+        </a>
+
+    </form>
+</nav>
+<!-- header -->
+<header id="header" class="header fixed-top">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item nav-item-custom">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item nav-item-custom">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item nav-item-custom">
+                        <a class="nav-link" href="#menu-section">Items</a>
+                    </li>
+                    <li class="nav-item nav-item-custom">
+                        <a class="nav-link" href="#service">Service</a>
+                    </li>
+
+                </ul>
+                <a th:href="@{/menu}" style="text-decoration: none;" >
+                    <div class="nav-end-button">
+                        <button type="button" class="btn btn-primary btn-lg">Menu</button>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- My Hero Section-->
+<section id="hero" class="hero d-flex align-items-center section-custom section-bg">
+    <div class="container">
+        <div class="row justify-content-center gy-5" >
+            <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+                <h1 class="h1-custom">Relish Your Delights<br>With Scrumptious Cuisine Control</h1>
+                <p class="p fs-5">Experience culinary bliss with our delectable menu, guaranteed to tantalize your taste buds</p>
+                <div class="hero-btn-book-table">
+                    <a th:href="@{/reserveTable}" style="text-decoration: none;">
+                        <button type="button" class="btn btn-primary btn-lg">Book Table</button>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+                <img src="images/menu-item-2.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- about us section-->
+<section id="about" class="about section-custom">
+    <div class="container text-center">
+        <div class="about-us-heading d-flex mb-5 justify-content-center">
+            <h2 style="color: #284c0c;">Learn About Us</h2>
+        </div>
+        <div class="row gy-4">
+            <div class="col-lg-7 position-relative about-img" style="background-image: url(images/botanic-mallorca-1638394352.jpg); background-size: cover; background-position: center;" >
+            </div>
+            <div class="col-lg-5 d-flex align-items-end">
+                <div class="content content-custom  ps-0 ps-lg-5">
+                    <p class="">
+                        Welcome to Cuisine Control, where every dish is crafted with passion and precision. Our chefs strive to create culinary masterpieces that tantalize your taste buds and leave you craving for more.
+                    </p>
+                    <ul class="about-ul">
+                        <li>
+                            At Cuisine Control, we believe in using only the freshest ingredients of best quality.
+                        </li>
+                        <li>
+                            At Cuisine Control, we ensure to provide farm-fresh vegetables to premium cuts of meat.
+                        </li>
+                        <li>
+                            At Cuisine Control, we ensure our cleanliness and saftey of our customers.
+                        </li>
+                    </ul>
+                    <p>
+                        Experience the art of gastronomy in a cozy and elegant ambiance at Cuisine Control. Whether you're celebrating a special occasion or simply enjoying a night out, our attentive staff is dedicated to making your visit memorable.
+                        <br><br>
+                    <div class="nav-end-button">
+                        <button type="button" class="btn btn-primary btn-lg">View Our Feedbacks</button>
+                    </div>
+                    </p>
+
+                    <div class="position-relative mt-4">
+                        <img src="images/restaurant-hall-with-red-brick-walls-wooden-tables-pipes-ceiling_140725-8504.avif" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- popular menu -->
+<section id="menu-section" class="menu-section section-custom">
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="Menu-heading d-block mb-5">
+                <h2 style="color: #284c0c;" class="ms-5 fw-bold">Our Popular Food Items </h2>
+                <h2 id="h2-type-2" class="mt-3 mb-5"> Items Ordered The Most</h2>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="images/menu-images/1vkl0ip8_dal-chawal_625x300_17_June_22.webp" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex h5-custom justify-content-between border-bottom pb-2">
+                            <span>Lentil rice</span>
+                            <span class="text-primary-price" >$115</span>
+                        </h5>
+                        <small class="fst-italic">Boiled rice with lentils with some special sauce</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="images/menu-images/desi.jpeg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex h5-custom justify-content-between border-bottom pb-2">
+                            <span>Haleem Rice</span>
+                            <span class="text-primary-price">$115</span>
+                        </h5>
+                        <small class="fst-italic">Chicken with all grains cooked together with boiled rice</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="images/menu-images/menu-item-1.png" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex h5-custom justify-content-between border-bottom pb-2">
+                            <span>Potato Carrot Curry</span>
+                            <span class="text-primary-price">$115</span>
+                        </h5>
+                        <small class="fst-italic">Potato and Carrot cocked tegether and served with bread</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="images/menu-images/menu-item-3.png" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex h5-custom justify-content-between border-bottom pb-2">
+                            <span>Chicken Macaroni</span>
+                            <span class="text-primary-price">$97</span>
+                        </h5>
+                        <small class="fst-italic">Chicken and Macaroni with chills and sauces</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="images/menu-images/menu-item-5.png" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex h5-custom justify-content-between border-bottom pb-2">
+                            <span>Fried Fish</span>
+                            <span class="text-primary-price">$102</span>
+                        </h5>
+                        <small class="fst-italic">Fish fried with delighted taste</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="images/menu-images/menu-item-6.png" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex h5-custom justify-content-between border-bottom pb-2">
+                            <span>Salat</span>
+                            <span class="text-primary-price">$106</span>
+                        </h5>
+                        <small class="fst-italic">Vegetables mixed together after cutting them with peper and salt</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="images/menu-item-2.png" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex h5-custom justify-content-between border-bottom pb-2">
+                            <span>Chicken Rolls</span>
+                            <span class="text-primary-price">$112</span>
+                        </h5>
+                        <small class="fst-italic">Bread rolls with Chicken in it and fried</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="images/menu-images/menu-7.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex h5-custom justify-content-between border-bottom pb-2">
+                            <span>Chicken Fajita Pizza</span>
+                            <span class="text-primary-price">$106</span>
+                        </h5>
+                        <small class="fst-italic">Soft Bread with vegetables,cheese,chicken and sauces spread on it</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<!-- Service -->
+<section id="service" class="form-area section-custom">
+
+
+    <div class="heading-service-exp">
+        <div class="container text-center">
+            <div class="service-heading d-flex justify-content-center mb-2">
+                <h2 style="color: #284c0c;" class="ms-5">Our Expreienced Staff </h2>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <p>
+                    <h2 id="h2-type-2">Years Of Experience: 5 YEARS </h2>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col">
+                <div class="card bg-white shadow">
+                    <div class="d-flex justify-content-center">
+                        <div class="shef-image bg-white shadow" style="background-image: url(images/menu-images/pngimg.com\ -\ chef_PNG85.png);">
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title h5-custom">Rayyan Bay</h5>
+                        <p class="card-text">With a passion for flavors that dance on the palate and a dedication to perfection in every dish, Sheff brings a touch of magic to every meal served with heart</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-white shadow">
+                    <div class="d-flex justify-content-center">
+                        <div class="shef-image bg-white shadow" style="background-image: url(images/menu-images/pngimg.com\ -\ chef_PNG146.png);">
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title h5-custom">Asad Ali</h5>
+                        <p class="card-text">Infusing each dish with a symphony of flavors that awaken the senses and a relentless pursuit of culinary mastery, Sheff brings a dash of enchantment to every table</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-white shadow">
+                    <div class="d-flex justify-content-center">
+                        <div class="shef-image bg-white shadow" style="background-image: url(images/menu-images/pngimg.com\ -\ chef_PNG111.png);">
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title h5-custom">Rabbi Udin</h5>
+                        <p class="card-text">Each dish crafted by Sheff is a harmonious blend of flavors that captivate the taste buds, coupled with an unyielding dedication to perfection ensures meal a magic</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-white shadow">
+                    <div class="d-flex justify-content-center">
+                        <div class="shef-image bg-white shadow" style="background-image: url(images/menu-images/pngimg.com\ -\ chef_PNG168.png);">
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title h5-custom">Zaman Rafiq</h5>
+                        <p class="card-text">With a mastery of flavor profiles that ignite the palate and an unwavering commitment to culinary excellence, Sheff elevates each dining occasion with a sprinkle of enchantment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- reviews -->
+<section id="reviews" class="testimonial text-center bg-white shadow rounded-3 section-custom mb-5" >
+    <div class="container">
+
+        <div class="heading white-heading">
+            Reviews
+        </div>
+        <div id="testimonial4" class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-bs-ride="carousel" data-bs-pause="hover" data-bs-interval="5000">
+
+            <div class="carousel-inner">
+                <div th:each="feedback, iterStat : ${feedbacks}" class="carousel-item" th:classappend="${iterStat.index == 0 ? 'active' : ''}">
+                    <div class="testimonial4_slide">
+<!--                        <img src="https://i.ibb.co/8x9xK4H/team.jpg" class="img-fluid rounded-circle" alt="Client 1">-->
+                        <p class="mt-3" th:text="${feedback.feedback}"></p>
+                        <h4 th:text="${feedback.getCustomerInfo().fullname}">Client 1</h4>
+                        <div style="color: gold;">
+                            <i th:each="i : ${#numbers.sequence(1, feedback.noStars)}" class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonial4" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonial4" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div>
+            <a th:href="@{/feedback}" style="text-decoration: none;" >
+                <div class="nav-end-button">
+                    <button type="button" class="btn btn-primary btn-lg">Make your post</button>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+<!--final footer-->
+<footer id="footer" class="footer-custom">
+    <div class="container">
+        <div class="row gy-3">
+            <div class="col-lg-3 col-md-6 d-flex">
+                <i class="fa fa-map-marker icon me-2"  style="color: whitesmoke; margin-top: 3.5px;"></i>
+                <div>
+                    <h4>Address</h4>
+                    <p>
+                        Plot-852-b, Milad Street <br>
+                        Faisal Town, B-Block - PK<br>
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links d-flex">
+                <i class="fa fa-phone icon me-2" style="color: whitesmoke; margin-top: 5px;"></i>
+                <div>
+                    <h4>Reservations</h4>
+                    <p>
+                        <strong>Phone:</strong> +92 3324244033 <br>
+                        <strong>Email:</strong> l221234@lhr.nu.edu.pk <br>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links d-flex">
+                <i class="fa fa-clock-o icon me-2" style="color: whitesmoke; margin-top: 5px;"></i>
+                <div>
+                    <h4>Opening Hours</h4>
+                    <p>
+                        <strong>Mon-Sat: 11AM</strong> - 23PM<br>
+                        Sunday: Closed
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Follow Us</h4>
+                <div class="social-links social-links-custom d-flex">
+                    <a href="https://twitter.com/i/flow/signup?lang=en" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/"  target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/"  target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
+                    <a href="https://pk.linkedin.com/"  target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <hr>
+    <hr>
+
+    <div class="container end-of-footer">
+        <div class="d-flex justify-content-center">
+            <div class="copyright">
+                © Copyright <strong><span>Cuisine Control</span></strong>. All Rights Reserved
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="credits credits-custom" style="color: white;">
+                Designed by <a href="https://google.com/"  target="_blank">Fastian</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
